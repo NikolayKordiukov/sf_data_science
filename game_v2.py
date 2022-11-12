@@ -47,4 +47,4 @@ if __name__ == '__main__':
     
 
 #print(f"Количество попыток: {random_predict(10)}")
-        ####
+        
