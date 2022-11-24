@@ -4,7 +4,7 @@
 import numpy as np
 
 def random_predict(number: int=1) -> int:
-    """Рандомно угадываем число
+    """Угадываем число за 20 попыток и меньше
 
     Args:
         number (int, optional): Загаданное число. Defaults to 1.
@@ -13,17 +13,22 @@ def random_predict(number: int=1) -> int:
         int: Число попыток
     """
     count = 0
-    
+    max_number = 100
+    min_number = 1
+
     while True:
         count+=1
-        predict_number = np.random.randint(1,101) #предполагаемое число
-        
+        predict_number = (max_number + min_number) // 2
+
         if predict_number > number:
-            predict_number = (100 - predict_number) // 2
+            max_number = predict_number - 1 # понижаем верхнюю границу диапазона поиска
+            
         elif predict_number < number:
-            predict_number = predict_number // 2
+            min_number = predict_number + 1 #повышаем нижнюю границу диапазона поиска
+            
         elif number == predict_number:
             break #выход из цикла если угадали
+    
     return count
 
 def score_game(random_predict)->int:
@@ -51,5 +56,5 @@ if __name__ == '__main__':
     score_game(random_predict)
     
 
-#print(f"Количество попыток: {random_predict(10)}")
+#print(f"Количество попыток: {random_predict(25)}")
         
