@@ -137,3 +137,7 @@ project_5/data
 dst-3.0_mathml_14_5_rating.csv
 
 *venv/
+
+project_diplom/data/data.zip
+project_diplom/data/output.zip
+102flowers.tgz.zip
