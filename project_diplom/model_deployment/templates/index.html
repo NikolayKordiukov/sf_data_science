@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Предсказание класса НКО</h1>
+
+     <!-- Основные вводные данные для получения предсказания -->
+    <form action="{{ url_for('predict')}}"method="post">
+      
+      
+      <input type="text" name="minjustForm_Учреждение" placeholder="Форма по Минюсту - Учреждение?" required="required" style="width: 900px; height: 30px;" />
+      
+      
+      
+      <input type="text" name="minjustForm_Автономная некоммерческая организация" placeholder="Форма по Минюсту - АНО?" required="required" style="width: 900px; height: 30px;" />
+      
+
+      
+      <input type="text" name="mminjustForm_Не указано" placeholder="Форма по Минюсту - Не указана?" required="required" style="width: 900px; height: 30px;" />  
+      
+      
+      
+      <input type="text" name="minjustStatus_Зарегистрирована" placeholder="Статус по Минюсту - Зарегистрирована?" required="required" style="width: 900px; height: 30px;" />
+      
+      
+      
+      <input type="text" name="hasRegionalSupport_True" placeholder="НКО была получателем региональной поддержки?" required="required" style="width: 900px; height: 30px;" />
+      
+      
+      
+      <input type="text" name="mainOkved.name_Образование профессиональное дополнительное" placeholder="Основной ОКВЭД - Образование профессиональное дополнительное?" required="required" style="width: 900px; height: 30px;" />
+      
+
+      
+      <input type="text" name="mainOkved.name_Деятельность по дополнительному профессиональному образованию прочая, не включенная в другие группировки" placeholder="Основной ОКВЭД - Деятельность по дополнительному профессиональному образованию прочая, не включенная в другие группировки?" required="required" style="width: 900px; height: 30px;" />
+      
+
+      
+      <input type="text" name="mainOkved.name_Деятельность стоянок для транспортных средств" placeholder="Основной ОКВЭД - Деятельность стоянок для транспортных средств?" required="required" style="width: 900px; height: 30px;" />
+      
+
+      
+      <input type="text" name="addOkvedCodes1Position_85.42.9" placeholder="Код дополнительного ОКВЭД - 85.42.9?" required="required" style="width: 900px; height: 30px;" />
+      
+
+      <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
